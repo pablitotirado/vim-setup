@@ -11,47 +11,46 @@ nmap ff :call search('\V' . '(')<CR> gf
 "nmap ff gf
 
 nmap ex ^
-" show tree directories
+
+"===> Mostrar finder
 nmap <Leader>n :NERDTreeFind<CR>
 
-" Save file
+"===> Guardar
 nmap <Leader>w :w<CR>
+
+"===> Guardar y quitar
 nmap <Leader>wq :wq<CR>
+
+"===> Quitar subrayado de color al remarcar
 nmap <Leader>, :noh<CR>
 
-" Quit
-" close each buffer and close vim
+"===> Cerrar archivo
+map <Leader>q :call CloseFile()<CR>
 
-"Close project
-nmap <Leader>q :call CloseFile()<CR>
+"===> Split vertical
+map <Leader>s :vsplit<CR>
 
-"Split vertical
-nmap <Leader>s :vsplit<CR>
+"===> Buscar en finder
+map <Leader>f :call fzf#run({'sink': 'e', 'down': '~20%'})<CR>
 
-"Finder
-nmap <Leader>f :call fzf#run({'sink': 'e', 'down': '~20%'})<CR>
-
-"Buscar palabras en archivos
+"===> Buscar palabras en archivos
 map <Leader>F :Rg<CR>
 
-"Buscar en un archivo
+"===> Buscar en un archivo
 map <Leader>/ :/
 
-"Ver errores en el archivo
+"===> Ver errores en el archivo
 map <Leader>cd :CocDiagnostics<CR>
 
-"Ctrl + F renombra todas las coincidencias en un archivo
+"===> Ctrl + F renombra todas las coincidencias en un archivo
 map <C-F> :replace
 cnoreabbrev replace Replace
 
-"===>Moverse entre las ventanas abiertas con split
+"===> Moverse entre las ventanas abiertas con split
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L> 
 nnoremap <C-H> <C-W><C-H>
-
-"===> Cambia el nombre de una variable/funcion en donde se uso 
-map <Leader>rn <Plug>(coc-rename)
 
 "===> Atajo para ejecutar comandos simples en terminal 
 map <Leader>t :!
