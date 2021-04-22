@@ -82,5 +82,6 @@ set statusline+=\ %l/%L,%c\
 """"""""""""""""""" Plugins config 
 so ~/.config/nvim/plug.config.vim
 
-""""""""""""""""""" Imports colors
 
+""""""""""""""""""" Imports colors
+so ~/.config/nvim/colors.vim

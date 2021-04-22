@@ -21,68 +21,86 @@ nmap <Leader>, :noh<CR>
 
 " Quit
 " close each buffer and close vim
-function! CloseFile()
-     if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-         :q
-     else
-         :bdelete
-     endif
-endfunction
 
+"Close project
 nmap <Leader>q :call CloseFile()<CR>
 
-" Split vertical
+"Split vertical
 nmap <Leader>s :vsplit<CR>
 
-" Finder
+"Finder
 nmap <Leader>f :call fzf#run({'sink': 'e', 'down': '~20%'})<CR>
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
-" Finder in files
-nmap <Leader>F :Rg<CR>
+"Buscar palabras en archivos
+map <Leader>F :Rg<CR>
 
-" Search in file
-nmap <Leader>b :/
-nmap <Leader>/ :/
+"Buscar en un archivo
+map <Leader>/ :/
 
-" Git
-nmap <Leader>c :Gdiffsplit<CR>
-nmap <Leader>d :0Git<CR>
-nmap <Leader>a :Gw<CR>
+"Ver errores en el archivo
+map <Leader>cd :CocDiagnostics<CR>
 
-"abbreviations from git commands
-cnoreabbrev gpush Gpush
-cnoreabbrev gstatus Gstatus
-cnoreabbrev gco Gco
-cnoreabbrev gpull Gpull
-
-""cnoreabbrev gpu Gpush
-cnoreabbrev gpu :!git push
-cnoreabbrev gst Gstatus
-cnoreabbrev gpl Gpull
-
-" Diagnostics
-cnoreabbrev dia CocDiagnostics
-
-" Command line
-map <Leader>; :
-
-" Command find and replace
-command! -nargs=+ Replace :%s/<args>/gc
+"Ctrl + F renombra todas las coincidencias en un archivo
+map <C-F> :replace
 cnoreabbrev replace Replace
 
-" List files opened
-nmap <Leader>p :Buffers<CR>
-
-
-nmap <silent> K :call <SID>coc#refresh()<CR>
-
-
-" Move focus between split screens
+"===>Moverse entre las ventanas abiertas con split
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
+nnoremap <C-L> <C-W><C-L> 
 nnoremap <C-H> <C-W><C-H>
+
+"===> Cambia el nombre de una variable/funcion en donde se uso 
+map <Leader>rn <Plug>(coc-rename)
+
+"===> Atajo para ejecutar comandos simples en terminal 
+map <Leader>t :!
+
+"===> Atajo para entrar en modo normal 
+map <Leader>; :
+
+"===> Cambia entre numero relativo y no relativo 
+map <C-N> :set relativenumber!<CR>
+
+"===> Tab siguiente 
+map <C-]> :bnext<CR>
+
+"===> Tab previa 
+map <C-[> :bprevious<CR>
+
+"===> Corre el test en el que esta el cursor 
+map <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+
+"===> Corre todo el archivo de test 
+map <leader>ta :JestCurrent<CR>
+
+"===> Corre todos los test del proyecto 
+map <leader>ate :Jest<CR>
+
+"===> Ver archivos abiertos 
+map <Leader>p :Buffers<CR>
+
+"--------> COMMANDS <--------"
+
+"===> JestInit 
+command! JestInit :call CocAction('runCommand', 'jest.init')
+
+"===> Jest in all project 
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+"===> Jest in single test 
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+"===> Replace 
+command! -nargs=+ Replace :%s/<args>/gc
+
+"===> ConfigGrep 
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+"--------> SNIPPETS <---------"
+
+imap csl console.log()
+imap fn () => {}
 
 " Autocomplete parents pairs
 inoremap ( ()<Esc>i
@@ -93,76 +111,24 @@ inoremap ` ``<Esc>i
 inoremap ${ ${}<Esc>i
 inoremap { {<CR>}<C-c>O
 
-" Run jest for current project
-command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+"--------> FUNCIONS <---------"
 
-" Run jest for current file
-command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
-
-" Run jest for current test
-nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
-nnoremap <leader>ta :JestCurrent<CR>
-
-" Init jest in current cwd, require global jest command exists
-command! JestInit :call CocAction('runCommand', 'jest.init')
-
-
-
-
-nmap <Leader>rn <Plug>(coc-rename)
-
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Open terminal and run command 
-" param1 : command
-" param2 : focus in terminal
-"          0: false, 
-"          null or 1: true  
-function! RunCommand(command,...)
-    let command = a:command
-    let focus = get(a:, 1, 1) 
-    echo('Running Command...' . command)
-  let bufNum = bufnr("%")
-  let bufType = getbufvar(bufNum, "&buftype", "not found")
-  if bufType == "terminal"
-    " close existing terminal
-    execute "q"
-  else 
-    vsplit
-    execute "normal \<C-l>"
-    execute "term " . command
-    execute "set nonu"
-    execute "set nornu"
-    " toggle insert on enter/exit
-    silent au BufLeave <buffer> stopinsert!
-    silent au BufWinEnter,WinEnter <buffer> startinsert!
-    execute "tnoremap <buffer> <Leader>q <C-\\><C-n>:q<CR>"
-    if (!focus)
-     execute "normal \<C-h>"
-    else
-     execute "normal \<C-h>"
-     execute "normal \<C-l>"
-    endif
-  endif
+"===> CloseFile 
+function! CloseFile()
+     if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+         :q
+     else
+         :bdelete
+     endif
 endfunction
 
-cnoreabbrev up :call RunCommand('npm run start')
-cnoreabbrev schema :call RunCommand('git log --all --graph')
 
-"Atajo para ejecutar comandos simples en terminal
-nmap <Leader>t :!
 
-"Atajo para entrar en modo normal
-map <Leader>; :
 
-"Cambia entre numero relativo y no relativo
-nnoremap <C-N> :set relativenumber!<CR>
 
-"Cambiar entre tabs de archivos abiertos
-nnoremap <C-]> :bnext<CR>
-nnoremap <C-[> :bprevious<CR>
 
-"Snippets
-imap csl console.log()
-imap fn () => {}
+"Comandos a revisar
+" Git
+"nmap <Leader>c :Gdiffsplit<CR>
+"nmap <Leader>d :0Git<CR>
+"nmap <Leader>a :Gw<CR>
