@@ -20,6 +20,7 @@ set foldlevelstart=99 " start file with all folds opened
 set noswapfile
 set nobackup
 set number
+set t_Co=256
 language en_US.UTF-8
 
 if (has('termguicolors'))
@@ -31,40 +32,55 @@ so ~/.config/nvim/maps.vim
 
 """"""""""""""""""" Plugins
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'alvan/vim-closetag'
+  
+  "Autocompletado llaves/corchetes/comillas
   Plug 'jiangmiao/auto-pairs'
-  Plug 'tpope/vim-surround'
+  
+  "Coc 
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} 
   Plug 'neoclide/coc-jest'
+  
+  "Mostrar autor de lineas commiteadas de git
   Plug 'APZelos/blamer.nvim'
-  Plug 'morhetz/gruvbox'
+  
+  "Soporte styled-components
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
- 
+  
+  "Buscador de archivos/palabras
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  
+  "Nerdtree navegar archivos
   Plug 'scrooloose/nerdtree'
+
+  "Soporte para comandos git
   Plug 'tpope/vim-fugitive'
+
+  "Otro soporte para comandos git
   Plug 'airblade/vim-gitgutter'
-  Plug 'Yggdroot/indentLine'
-  "Vue
+  
+  "Javascript Vue/Jsx/Graphql/Html
   Plug 'posva/vim-vue'
   Plug 'leafOfTree/vim-vue-plugin'
-  Plug 'sainnhe/sonokai'
-  ""Ruby
-  Plug 'vim-ruby/vim-ruby'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'jparise/vim-graphql'
   Plug 'andrewradev/tagalong.vim'
- call plug#end()
+  
+  ""Ruby
+  Plug 'vim-ruby/vim-ruby'
+
+  "Theme
+  Plug 'morhetz/gruvbox'
+
+call plug#end()
 
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
   Plugin 'vim-airline/vim-airline'
   Plugin 'cakebaker/scss-syntax.vim'
-  Plugin 'udalov/kotlin-vim'
 call vundle#end()
 
 """""""""""""""" Custom status bar

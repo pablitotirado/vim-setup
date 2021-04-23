@@ -6,10 +6,13 @@ let mapleader = " "
 "remap got to definitions local
 nnoremap fs gd
 
-" require('....
+"require('....
 nmap ff :call search('\V' . '(')<CR> gf
-"nmap ff gf
 
+"===> Seleccionar todo el texto de un archivo
+nmap <C-a> <esc>ggVG<CR>
+
+"===> Ir al principio de la linea
 nmap ex ^
 
 "===> Mostrar finder
@@ -100,15 +103,13 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 
 imap csl console.log()
 imap fn () => {}
-
-" Autocomplete parents pairs
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
-inoremap ` ``<Esc>i
-inoremap ${ ${}<Esc>i
-inoremap { {<CR>}<C-c>O
+imap ( ()
+imap [ []
+imap ' ''
+imap " ""
+imap ` ``
+imap ${ ${}
+imap { {}
 
 "--------> FUNCIONS <---------"
 
@@ -121,13 +122,9 @@ function! CloseFile()
      endif
 endfunction
 
-
-
-
-
-
 "Comandos a revisar
 " Git
 "nmap <Leader>c :Gdiffsplit<CR>
 "nmap <Leader>d :0Git<CR>
 "nmap <Leader>a :Gw<CR>
+
