@@ -25,25 +25,25 @@ nmap <Leader>wq :wq<CR>
 nmap <Leader>, :noh<CR>
 
 "===> Cerrar archivo
-map <Leader>q :call CloseFile()<CR>
+nmap <Leader>q :call CloseFile()<CR>
 
 "===> Split vertical
-map <Leader>s :vsplit<CR>
+nmap <Leader>s :vsplit<CR>
 
 "===> Buscar en finder
-map <Leader>f :call fzf#run({'sink': 'e', 'down': '~20%'})<CR>
+nmap <Leader>f :call fzf#run({'sink': 'e', 'down': '~20%'})<CR>
 
 "===> Buscar palabras en archivos
-map <Leader>F :Rg<CR>
+nmap <Leader>F :Rg<CR>
 
 "===> Buscar en un archivo
-map <Leader>/ :/
+nmap <Leader>/ :/
 
 "===> Ver errores en el archivo
-map <Leader>cd :CocDiagnostics<CR>
+nmap <Leader>cd :CocDiagnostics<CR>
 
 "===> Ctrl + F renombra todas las coincidencias en un archivo
-map <C-F> :replace
+nmap <C-F> :replace
 cnoreabbrev replace Replace
 
 "===> Moverse entre las ventanas abiertas con split
@@ -53,31 +53,31 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "===> Atajo para ejecutar comandos simples en terminal 
-map <Leader>t :!
+nmap <Leader>t :!
 
 "===> Atajo para entrar en modo normal 
-map <Leader>; :
+nmap <Leader>; :
 
 "===> Cambia entre numero relativo y no relativo 
-map <C-N> :set relativenumber!<CR>
+nmap <C-N> :set relativenumber!<CR>
 
 "===> Tab siguiente 
-map <C-]> :bnext<CR>
+nmap <C-]> :bnext<CR>
 
 "===> Tab previa 
-map <C-[> :bprevious<CR>
+nmap <C-[> :bprevious<CR>
 
 "===> Corre el test en el que esta el cursor 
-map <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+nmap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 "===> Corre todo el archivo de test 
-map <leader>ta :JestCurrent<CR>
+nmap <leader>ta :JestCurrent<CR>
 
 "===> Corre todos los test del proyecto 
-map <leader>ate :Jest<CR>
+nmap <leader>ate :Jest<CR>
 
 "===> Ver archivos abiertos 
-map <Leader>p :Buffers<CR>
+nmap <Leader>p :Buffers<CR>
 
 "--------> COMMANDS <--------"
 
