@@ -5,15 +5,13 @@ let g:coc_snippet_next = '<tab>'
 """"""""""""""""""" fzf config
 let g:fzf_layout = { 'down': '~40%' }
 
-let g:rainbow_active = 1
-
+""""""""""""""""""" Tagalong
 let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', 'javascriptreact', 'typescriptreact']
 
-"Blamer"
+"Blamer
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_show_in_insert_modes = 1
 let g:blamer_enabled = 1
-highlight Blamer guifg=red
 
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
@@ -34,3 +32,8 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*']
 
 """"""""""""""""""" Vim Mutton
 let g:mutton_min_center_width = 188
+
+function! StatuslineGit()
+  let l:branchname = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  return strlen(l:branchname) > 0?l:branchname:''
+endfunction

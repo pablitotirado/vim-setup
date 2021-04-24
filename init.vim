@@ -21,16 +21,17 @@ set noswapfile
 set nobackup
 set number
 set t_Co=256
+set statusline+=%#StatusBar#\ %f\ \ %m
+set statusline+=%=\ %{StatuslineGit()} 
+set statusline+=\ %l/%L,%c\ 
 language en_US.UTF-8
 
 if (has('termguicolors'))
   set termguicolors
 endif
 
-""""""""""""""""""" Imports shortcuts
-so ~/.config/nvim/maps.vim
 
-""""""""""""""""""" Plugins
+"Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
   
   "Autocompletado llaves/corchetes/comillas
@@ -77,27 +78,20 @@ call plug#begin('~/.config/nvim/plugged')
 
 call plug#end()
 
+
+"Vundle
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
   Plugin 'vim-airline/vim-airline'
   Plugin 'cakebaker/scss-syntax.vim'
 call vundle#end()
 
-"""""""""""""""" Custom status bar
-function! StatuslineGit()
-  let l:branchname = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-  return strlen(l:branchname) > 0?l:branchname:''
-endfunction
 
-set statusline+=%#StatusBar#\ %f\ \ %m
-
-" Right side settings
-set statusline+=%=\ %{StatuslineGit()} 
-set statusline+=\ %l/%L,%c\ 
-
-""""""""""""""""""" Plugins config 
+"===== Plugins config 
 so ~/.config/nvim/plug.config.vim
 
-
-""""""""""""""""""" Imports colors
+"===== Colors
 so ~/.config/nvim/colors.vim
+
+"===== Maps
+so ~/.config/nvim/maps.vim
