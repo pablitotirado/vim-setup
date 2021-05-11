@@ -9,7 +9,8 @@
     "typescript.tsx",
     "graphql",
     "css",
-    "scss"
+    "scss",
+    "html"
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,

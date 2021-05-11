@@ -13,13 +13,14 @@ set ttimeoutlen=50
 set undofile
 set undodir=~/.vim/undodir/
 set history=100
-set autoindent
 set foldmethod=syntax " syntax highlighting items specify folds
 set foldcolumn=0      " defines 1 col at window left, to indicate folding
 set foldlevelstart=99 " start file with all folds opened
 set noswapfile
 set nobackup
 set number
+set ruler
+set autowrite
 set t_Co=256
 set statusline+=%#StatusBar#\ %f\ \ %m
 set statusline+=%=\ %{StatuslineGit()} 
@@ -30,13 +31,14 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
-  
+  Plug 'sirver/ultisnips'
+  Plug 'metakirby5/codi.vim'
   "Autocompletado llaves/corchetes/comillas
+ 
   Plug 'jiangmiao/auto-pairs'
-  
+  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
   "Coc 
   Plug 'neoclide/coc.nvim', {'branch': 'release'} 
   Plug 'neoclide/coc-jest'
@@ -70,12 +72,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'jparise/vim-graphql'
   Plug 'andrewradev/tagalong.vim'
   
-  ""Ruby
+  "Ruby
   Plug 'vim-ruby/vim-ruby'
 
   "Theme
   Plug 'morhetz/gruvbox'
-
 call plug#end()
 
 
