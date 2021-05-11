@@ -3,6 +3,17 @@
 """"""""""""""""""""""" Shortcutslet mapleader = "\<space>"
 let mapleader = " "
 
+"remap arrows 
+nnoremap j h
+nnoremap k j
+nnoremap l k
+nnoremap ; l
+
+vnoremap j h
+vnoremap k j
+vnoremap l k
+vnoremap ; l
+
 "remap got to definitions local
 nnoremap fs gd
 
@@ -15,7 +26,7 @@ nmap <C-a> <esc>ggVG<CR>
 "===> Ir al principio de la linea
 nmap ex ^
 
-"===> Mostrar finder
+"===> Mostrar y cerrar finder
 nmap <Leader>n :NERDTreeFind<CR>
 
 "===> Guardar
@@ -23,6 +34,9 @@ nmap <Leader>w :w<CR>
 
 "===> Guardar y quitar
 nmap <Leader>wq :wq<CR>
+
+"Escape y autosave
+imap ii <ESC>:w<CR>
 
 "===> Quitar subrayado de color al remarcar
 nmap <Leader>, :noh<CR>
@@ -62,25 +76,38 @@ nmap <Leader>t :!
 nmap <Leader>; :
 
 "===> Cambia entre numero relativo y no relativo 
-nmap <C-N> :set relativenumber!<CR>
+nmap <C-h> :set relativenumber!<CR>
 
 "===> Tab siguiente 
-nmap <C-]> :bnext<CR>
+nnoremap <C-K> :bnext<CR>
 
 "===> Tab previa 
-nmap <C-[> :bprevious<CR>
+nnoremap <C-J> :bprevious<CR>
 
 "===> Corre el test en el que esta el cursor 
-nmap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+nmap <Leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 "===> Corre todo el archivo de test 
-nmap <leader>ta :JestCurrent<CR>
+nmap <Leader>ta :JestCurrent<CR>
 
 "===> Corre todos los test del proyecto 
-nmap <leader>ate :Jest<CR>
+nmap <Leader>ate :Jest<CR>
 
 "===> Ver archivos abiertos 
 nmap <Leader>p :Buffers<CR>
+
+""let g:VM_maps = {}
+""let g:VM_leader                        = ' '
+""let g:VM_maps["Get Operator"]          = ''
+""let g:VM_maps["Reselect Last"]         = ''
+""let g:VM_maps["Add Cursor At Pos"]     = ''
+""let g:VM_maps["Start Regex Search"]    = ''
+""let g:VM_maps["Select All"]            = '<C-n>'
+""let g:VM_maps["Visual Regex"]          = ''
+""let g:VM_maps["Visual All"]            = '' 
+""let g:VM_maps["Visual Add"]            = ''
+""let g:VM_maps["Visual Find"]           = ''
+""let g:VM_maps["Visual Cursors"]        = '<C-9>'
 
 "--------> COMMANDS <--------"
 
@@ -99,19 +126,7 @@ command! -nargs=+ Replace :%s/<args>/gc
 "===> ConfigGrep 
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
-"--------> SNIPPETS <---------"
-
-imap csl console.log()
-imap fn () => {}
-imap ( ()
-imap [ []
-imap ' ''
-imap " ""
-imap ` ``
-imap ${ ${}
-imap { {}
-
-"--------> FUNCIONS <---------"
+"i-------> FUNCIONS <---------"
 
 "===> CloseFile 
 function! CloseFile()
@@ -124,7 +139,27 @@ endfunction
 
 "Comandos a revisar
 " Git
-"nmap <Leader>c :Gdiffsplit<CR>
-"nmap <Leader>d :0Git<CR>
+"hermano aqui estamos <Leader>c :Gdiffsplit<CR>
+"hermano aqui estamos <Leader>d :0Git<CR>
 "nmap <Leader>a :Gw<CR>
+
+imap < <>
+imap fn () => {}
+
+
+
+"autocmd BufEnter * :mapclear
+
+
+function! Remaping()
+
+  
+
+endfunction
+
+
+
+nmap gpd :!git pull origin develop <CR>
+
+
 

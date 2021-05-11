@@ -2,12 +2,14 @@
 let g:coc_global_extensions = ['coc-tabnine', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-snippets', 'coc-jest']
 let g:coc_snippet_next = '<tab>'
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 """"""""""""""""""" fzf config
 let g:fzf_layout = { 'down': '~40%' }
 
 """"""""""""""""""" Tagalong
 let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', 'javascriptreact', 'typescriptreact']
-
+  let g:airline#extensions#keymap#enabled = 1
 "Blamer
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_show_in_insert_modes = 1

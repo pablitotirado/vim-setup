@@ -1,0 +1,12 @@
+snippet csl "console" b
+console.log($1)
+endsnippet
+
+
+snippet try "try {} catch (err) { console.log(err); }" i
+try {
+  $1
+} catch (err) {
+  ${2:console.log(err);}
+}
+endsnippet
