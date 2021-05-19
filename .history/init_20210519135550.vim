@@ -33,10 +33,13 @@ endif
 
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
+<<<<<<< HEAD
 
 
   Plug 'ayu-theme/ayu-vim'
   Plug 'tomasiser/vim-code-dark'
+=======
+>>>>>>> b229bda4714de0a576fe160edc8720f7cfbe18df
   Plug 'sirver/ultisnips'
   Plug 'metakirby5/codi.vim'
   "Autocompletado llaves/corchetes/comillas

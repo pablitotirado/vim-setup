@@ -83,10 +83,17 @@ nmap <Leader>; :
 nmap <C-h> :set relativenumber!<CR>
 
 "===> Tab siguiente 
+<<<<<<< HEAD
 nnoremap <C-K> :bnext<CR>
 
 "===> Tab previa 
 nnoremap <C-J> :bprevious<CR>
+=======
+nnoremap <C-J> :bnext<CR>
+
+"===> Tab previa 
+nnoremap <C-K> :bprevious<CR>
+>>>>>>> b229bda4714de0a576fe160edc8720f7cfbe18df
 
 "===> Corre el test en el que esta el cursor 
 nmap <Leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
@@ -162,9 +169,12 @@ endfunction
 "hermano aqui estamos <Leader>d :0Git<CR>
 "nmap <Leader>a :Gw<CR>
 
+<<<<<<< HEAD
 imap < <>
+=======
 
 
+>>>>>>> b229bda4714de0a576fe160edc8720f7cfbe18df
 imap fn () => {}
 
 
@@ -177,6 +187,7 @@ function! Remaping()
   
 
 endfunction
+<<<<<<< HEAD
 
 
 
@@ -184,3 +195,5 @@ nmap gpd :!git pull origin develop <CR>
 
 
 
+=======
+>>>>>>> b229bda4714de0a576fe160edc8720f7cfbe18df

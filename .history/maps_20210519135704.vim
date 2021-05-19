@@ -87,6 +87,10 @@ nnoremap <C-K> :bnext<CR>
 
 "===> Tab previa 
 nnoremap <C-J> :bprevious<CR>
+nnoremap <C-J> :bnext<CR>
+
+"===> Tab previa 
+nnoremap <C-K> :bprevious<CR>
 
 "===> Corre el test en el que esta el cursor 
 nmap <Leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
