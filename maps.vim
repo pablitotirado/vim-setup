@@ -17,6 +17,10 @@ vnoremap ; l
 "remap got to definitions local
 nnoremap fs gd
 
+
+"Select the word to right cursor
+nmap <Leader>d <space> viw
+
 "require('....
 nmap ff :call search('\V' . '(')<CR> gf
 
@@ -94,7 +98,9 @@ nmap <Leader>ta :JestCurrent<CR>
 nmap <Leader>ate :Jest<CR>
 
 "===> Ver archivos abiertos 
-nmap <Leader>p :Buffers<CR>
+"nmap <Leader>p :Buffers<CR>
+nmap <Leader>p :Prettier<CR>
+
 
 ""let g:VM_maps = {}
 ""let g:VM_leader                        = ' '

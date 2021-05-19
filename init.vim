@@ -34,7 +34,9 @@ endif
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
 
-  Plug 'rktjmp/lush.nvim'
+
+  Plug 'ayu-theme/ayu-vim'
+  Plug 'tomasiser/vim-code-dark'
   Plug 'sirver/ultisnips'
   Plug 'metakirby5/codi.vim'
   "Autocompletado llaves/corchetes/comillas
@@ -54,7 +56,7 @@ call plug#begin('~/.config/nvim/plugged')
   "Buscador de archivos/palabras
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  
+
   "Nerdtree navegar archivos
   Plug 'scrooloose/nerdtree'
 
@@ -78,7 +80,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-ruby/vim-ruby'
 
   "Theme
-  Plug 'morhetz/gruvbox'
+  "Plug 'morhetz/gruvbox'
 call plug#end()
 
 
