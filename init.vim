@@ -33,8 +33,6 @@ endif
 
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
-
-
   Plug 'ayu-theme/ayu-vim'
   Plug 'tomasiser/vim-code-dark'
   Plug 'sirver/ultisnips'
@@ -78,13 +76,6 @@ call plug#begin('~/.config/nvim/plugged')
   
   "Ruby
   Plug 'vim-ruby/vim-ruby'
-
-  "Theme
-<<<<<<< HEAD
-  "Plug 'morhetz/gruvbox'
-=======
-  Plug 'morhetz/gruvbox'
->>>>>>> b229bda4714de0a576fe160edc8720f7cfbe18df
 call plug#end()
 
 

@@ -3,7 +3,7 @@ let g:coc_global_extensions = ['coc-tabnine', 'coc-tsserver', 'coc-eslint', 'coc
 let g:coc_snippet_next = '<tab>'
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
+let g:airline#extensions#tabline#fnamemod = ':t'
 """"""""""""""""""" fzf config
 let g:fzf_layout = { 'down': '~40%' }
 
