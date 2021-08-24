@@ -14,6 +14,7 @@
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
+  "snippets.ultisnips.usePythonx": false,
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },

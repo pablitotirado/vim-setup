@@ -17,7 +17,8 @@ vnoremap ; l
 "remap got to definitions local
 nnoremap fs gd
 
-
+nmap <leader>ad <Plug>(coc-codeaction)
+nmap <silent>af <Plug>(coc-type-definition)
 "Select the word to right cursor
 nmap <Leader>d <space> viw
 
@@ -166,6 +167,7 @@ imap < <>
 
 
 imap fn () => {}
+imap csl console.log()
 
 
 

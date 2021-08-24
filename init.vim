@@ -1,5 +1,6 @@
 syntax on
 set mouse=a
+set cursorline
 set numberwidth=1
 set clipboard=unnamedplus
 set noshowcmd
@@ -33,9 +34,9 @@ endif
 
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
+  Plug 'sainnhe/gruvbox-material'
   Plug 'ayu-theme/ayu-vim'
   Plug 'tomasiser/vim-code-dark'
-  Plug 'sirver/ultisnips'
   Plug 'metakirby5/codi.vim'
   "Autocompletado llaves/corchetes/comillas
  
@@ -95,3 +96,6 @@ so ~/.config/nvim/colors.vim
 
 "===== Maps
 so ~/.config/nvim/maps.vim
+
+
+
