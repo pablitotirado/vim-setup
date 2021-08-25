@@ -15,14 +15,21 @@ let g:blamer_show_in_visual_modes = 0
 let g:blamer_show_in_insert_modes = 1
 let g:blamer_enabled = 1
 
-set termguicolors     " enable true colors support
-"let ayucolor="light"  " for light version of theme
-"let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu 
-"let g:gruvbox_contrast_dark = "hard"
+"colorscheme gruvbox 
+let g:gruvbox_contrast_dark = "hard"
+
+
+set termguicolors
+
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_italic = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'codedark'
+let g:gruvbox_material_disable_italic_comment = 0 
+let g:airline_theme = 'gruvbox_contrast_dark'
+colorscheme gruvbox-material
+
+" For dark version.
+set background=dark
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear

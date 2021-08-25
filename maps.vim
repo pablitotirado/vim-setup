@@ -14,6 +14,14 @@ vnoremap k j
 vnoremap l k
 vnoremap ; l
 
+
+
+nmap <leader>gv :colorscheme gruvbox-material<CR>
+nmap <leader>ayu :colorscheme ayu<CR>
+
+nmap <leader>3 0
+nmap <leader>9 $
+
 "remap got to definitions local
 nnoremap fs gd
 
@@ -157,32 +165,5 @@ function! CloseFile()
      endif
 endfunction
 
-"Comandos a revisar
-" Git
-"hermano aqui estamos <Leader>c :Gdiffsplit<CR>
-"hermano aqui estamos <Leader>d :0Git<CR>
-"nmap <Leader>a :Gw<CR>
-
 imap < <>
-
-
-imap fn () => {}
-imap csl console.log()
-
-
-
-"autocmd BufEnter * :mapclear
-
-
-function! Remaping()
-
-  
-
-endfunction
-
-
-
-nmap gpd :!git pull origin develop <CR>
-
-
 

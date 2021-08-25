@@ -14,9 +14,9 @@ set ttimeoutlen=50
 set undofile
 set undodir=~/.vim/undodir/
 set history=100
-set foldmethod=syntax " syntax highlighting items specify folds
-set foldcolumn=0      " defines 1 col at window left, to indicate folding
-set foldlevelstart=99 " start file with all folds opened
+set foldmethod=syntax 
+set foldcolumn=0      
+set foldlevelstart=99 
 set noswapfile
 set nobackup
 set number
@@ -64,7 +64,10 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Otro soporte para comandos git
   Plug 'airblade/vim-gitgutter'
-  
+ 
+  Plug 'morhetz/gruvbox'
+
+
   "Javascript Vue/Jsx/Graphql/Html
   Plug 'posva/vim-vue'
   Plug 'leafOfTree/vim-vue-plugin'
