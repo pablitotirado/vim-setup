@@ -137,6 +137,7 @@ let g:VM_maps["Visual Add"]            = ''
 let g:VM_maps["Visual Find"]           = ''
 let g:VM_maps["Visual Cursors"]        = ''
 
+
 "--------> COMMANDS <--------"
 
 "===> JestInit 
@@ -164,6 +165,7 @@ function! CloseFile()
          :bdelete
      endif
 endfunction
+
 
 imap < <>
 
