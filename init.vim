@@ -14,7 +14,7 @@ set ttimeoutlen=50
 set undofile
 set undodir=~/.vim/undodir/
 set history=100
-set foldmethod=syntax 
+set foldmethod=indent 
 set foldcolumn=0      
 set foldlevelstart=99 
 set noswapfile
