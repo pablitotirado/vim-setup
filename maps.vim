@@ -3,6 +3,15 @@
 """"""""""""""""""""""" Shortcutslet mapleader = "\<space>"
 let mapleader = " "
 
+
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap " ""<Esc>i
+inoremap ` ``<Esc>i
+inoremap ${ ${}<Esc>i
+inoremap { {}<Esc>i
+
+
 "remap arrows 
 nnoremap j h
 nnoremap k j
@@ -15,20 +24,17 @@ vnoremap l k
 vnoremap ; l
 
 
-
-nmap <leader>gv :colorscheme gruvbox-material<CR>
-nmap <leader>ayu :colorscheme ayu<CR>
-
 nmap <leader>3 0
 nmap <leader>9 $
 
 "remap got to definitions local
-nnoremap fs gd
 
+inoremap <silent><expr> <c-space> coc#refresh()
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>ad <Plug>(coc-codeaction)
-nmap <silent>af <Plug>(coc-type-definition)
+nmap <leader>af <Plug>(coc-type-definition)
 "Select the word to right cursor
-nmap <Leader>d <space> viw
 
 "require('....
 nmap ff :call search('\V' . '(')<CR> gf
@@ -167,5 +173,4 @@ function! CloseFile()
 endfunction
 
 
-imap < <>
 

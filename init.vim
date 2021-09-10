@@ -23,9 +23,6 @@ set number
 set ruler
 set autowrite
 set t_Co=256
-set statusline+=%#StatusBar#\ %f\ \ %m
-set statusline+=%=\ %{StatuslineGit()} 
-set statusline+=\ %l/%L,%c\ 
 language en_US.UTF-8
 
 if (has('termguicolors'))
@@ -35,12 +32,7 @@ endif
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
   Plug 'sainnhe/gruvbox-material'
-  Plug 'ayu-theme/ayu-vim'
-  Plug 'tomasiser/vim-code-dark'
-  Plug 'metakirby5/codi.vim'
-  "Autocompletado llaves/corchetes/comillas
  
-  Plug 'jiangmiao/auto-pairs'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
   "Coc 
   Plug 'neoclide/coc.nvim', {'branch': 'release'} 
@@ -64,9 +56,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Otro soporte para comandos git
   Plug 'airblade/vim-gitgutter'
- 
-  Plug 'morhetz/gruvbox'
-
 
   "Javascript Vue/Jsx/Graphql/Html
   Plug 'posva/vim-vue'
@@ -77,7 +66,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'jparise/vim-graphql'
   Plug 'andrewradev/tagalong.vim'
-  
+  Plug 'evanleck/vim-svelte'
+  Plug 'pangloss/vim-javascript'
+  Plug 'HerringtonDarkholme/yats.vim'  
   "Ruby
   Plug 'vim-ruby/vim-ruby'
 call plug#end()

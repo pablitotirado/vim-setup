@@ -1,4 +1,12 @@
 """"""""""""""""""" Coc extensions
+
+
+" Prettier Settings
+"let g:prettier#quickfix_enabled = 0
+"let g:prettier#autoformat_require_pragma = 0
+"au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
+
+
 let g:coc_global_extensions = ['coc-tabnine', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-snippets', 'coc-jest']
 let g:coc_snippet_next = '<tab>'
 
@@ -9,7 +17,8 @@ let g:fzf_layout = { 'down': '~40%' }
 
 """"""""""""""""""" Tagalong
 let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', 'javascriptreact', 'typescriptreact']
-  let g:airline#extensions#keymap#enabled = 1
+let g:airline#extensions#keymap#enabled = 1
+
 "Blamer
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_show_in_insert_modes = 1

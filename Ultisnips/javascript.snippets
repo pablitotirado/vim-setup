@@ -2,7 +2,6 @@ snippet csl "console" b
 console.log($1)
 endsnippet
 
-
 snippet fn "arrow function" i
 ($1) => {$2}
 endsnippet
@@ -13,4 +12,16 @@ try {
 } catch (err) {
   ${2:console.log(err);}
 }
+endsnippet
+
+snippet tst "test" i
+test('$1', () => {
+  $2
+})
+endsnippet
+
+snippet dsc "describe" i
+describe('$1', () => {
+  $2
+})
 endsnippet
